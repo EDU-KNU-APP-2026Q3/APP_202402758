@@ -8,6 +8,8 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth = 30;
     public int scoreValue = 10;
 
+    public int CurrentHealth => _currentHealth;
+
     int _currentHealth;
     bool _isDead = false;
 

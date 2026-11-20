@@ -1887,6 +1887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2112346457}
   - component: {fileID: 2112346458}
+  - component: {fileID: 938420021105603000}
   m_Layer: 5
   m_Name: Safe Area
   m_TagString: Untagged
@@ -2140,3 +2141,17 @@ SceneRoots:
   - {fileID: 1039751043}
   - {fileID: 63642466}
   - {fileID: 463365444}
+--- !u!114 &938420021105603000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112346456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb329717d39c45fabb167697a90ceaa0, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::StarlightHealthBar
+  player: {fileID: 1351909341}
+  font: {fileID: 11400000, guid: b0b2a6081d9147e499b8eb0964f675a8, type: 2}
