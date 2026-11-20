@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 /// <summary>
 /// 플레이어가 카메라에 보이는 영역 밖으로 나가지 않게 막음.
@@ -82,20 +82,20 @@ public class StayInCameraView : MonoBehaviour
         _bounds = Rect.MinMaxRect(minX, minY, maxX, maxY);
         _hasBounds = true;
 
-        Vector2 pos = _rb.position;
-        Vector2 clamped = new Vector2(Mathf.Clamp(pos.x, minX, maxX), Mathf.Clamp(pos.y, minY, maxY));
+        Vector2 position = _rb.position;
+        Vector2 inside = new Vector2(Mathf.Clamp(position.x, minX, maxX), Mathf.Clamp(position.y, minY, maxY));
 
-        if (clamped != pos)
-        {
-            _rb.position = clamped;
-            transform.position = new Vector3(clamped.x, clamped.y, transform.position.z);
+        // Correct an initial position outside the view, for example after resizing.
+        if (inside != position)
+            _rb.position = inside;
 
-            // 경계 밖으로 미는 속도는 없앰 (벽에 붙어 떨리지 않게)
-            Vector2 v = _rb.linearVelocity;
-            if (clamped.x != pos.x) v.x = 0f;
-            if (clamped.y != pos.y) v.y = 0f;
-            _rb.linearVelocity = v;
-        }
+        // Limit velocity before the physics step so holding input against an edge
+        // cannot push the body outside and snap it back every other frame.
+        float step = Time.fixedDeltaTime;
+        Vector2 velocity = _rb.linearVelocity;
+        _rb.linearVelocity = new Vector2(
+            Mathf.Clamp(velocity.x, (minX - inside.x) / step, (maxX - inside.x) / step),
+            Mathf.Clamp(velocity.y, (minY - inside.y) / step, (maxY - inside.y) / step));
     }
 
     void WarnOnce(string message)
