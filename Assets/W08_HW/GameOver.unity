@@ -2006,6 +2006,7 @@ GameObject:
   - component: {fileID: 685708346}
   - component: {fileID: 685708345}
   - component: {fileID: 685708349}
+  - component: {fileID: 938420021105605002}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6666,3 +6667,17 @@ SceneRoots:
   - {fileID: 685708348}
   - {fileID: 976877136}
   - {fileID: 1792306405}
+--- !u!114 &938420021105605002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685708344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a355f61e85cd4b899c9252b0eb610ee4, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::StarlightButtonEffects
+  ringSprite: {fileID: 21300000, guid: 5aae204ffd3643dc972b69185e745030, type: 3}
+  crystalSprite: {fileID: 21300000, guid: d86714024cf340dba480e476924323ea, type: 3}
