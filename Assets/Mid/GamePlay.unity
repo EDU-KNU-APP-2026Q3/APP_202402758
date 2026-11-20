@@ -1293,7 +1293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28529164d354a92409408f8e4fc0138f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoAttack
-  projectilePrefab: {fileID: 7626445442260553078, guid: dfdb058d6cf7d495d96218a2c690c7f5, type: 3}
+  projectilePrefab: {fileID: 7626445442260553078, guid: 4365c42027c84091a14a5ba21044d693, type: 3}
   attackInterval: 1
   attackRange: 5
   damage: 10
@@ -1522,7 +1522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StayInCameraView
   marginTop: 10
-  marginBottom: 30
+  marginBottom: 5
   marginLeft: 10
   marginRight: 10
   padding: 0.5
