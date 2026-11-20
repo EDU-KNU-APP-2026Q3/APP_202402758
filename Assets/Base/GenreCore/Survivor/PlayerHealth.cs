@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -9,6 +10,8 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int CurrentHealth { get; private set; }
+
+    public event Action Damaged;
 
     bool _isDead = false;
 
@@ -23,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
         if (_isDead) return; // 예외 케이스 방지
 
         CurrentHealth = Mathf.Max(0, CurrentHealth - amount);
+        if (amount > 0) Damaged?.Invoke();
 
         if (CurrentHealth <= 0)
         {

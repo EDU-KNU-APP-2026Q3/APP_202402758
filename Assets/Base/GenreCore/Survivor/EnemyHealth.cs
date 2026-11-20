@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -11,6 +12,8 @@ public class EnemyHealth : MonoBehaviour
     public int CurrentHealth => _currentHealth;
 
     int _currentHealth;
+    public event Action Damaged;
+
     bool _isDead = false;
 
     void OnEnable()
@@ -24,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
         if (_isDead) return;
 
         _currentHealth -= amount;
+        if (amount > 0) Damaged?.Invoke();
         if (_currentHealth <= 0)
         {
             _isDead = true;
