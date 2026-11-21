@@ -39,6 +39,7 @@ public sealed class StarlightHitEffect : MonoBehaviour
     void Flash()
     {
         bool isPlayer = player != null;
+        StarlightAudio.PlayImpact(isPlayer);
         flashLeft = FlashDuration;
         flashColor = isPlayer ? new Color32(255, 114, 122, 255) : new Color32(153, 222, 255, 255);
         body.color = flashColor;

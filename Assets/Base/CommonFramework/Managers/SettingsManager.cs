@@ -26,6 +26,7 @@ public class SettingsManager : MonoBehaviour
         Instance = this;
         // DontDestroyOnLoad는 부모(Managers)의 ManagerRoot.cs가 대표로 한 번만 호출합니다.
         LoadSettings();
+        AudioListener.volume = MasterVolume;
     }
 
     void LoadSettings()
@@ -40,6 +41,7 @@ public class SettingsManager : MonoBehaviour
     public void SetMasterVolume(float value)
     {
         MasterVolume = Mathf.Clamp01(value);
+        AudioListener.volume = MasterVolume;
         PlayerPrefs.SetFloat(KEY_MASTER, MasterVolume);
         PlayerPrefs.Save();
         GameEvents.RaiseSettingsChanged();

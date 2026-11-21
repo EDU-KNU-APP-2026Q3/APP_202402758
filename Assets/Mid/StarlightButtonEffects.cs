@@ -20,6 +20,7 @@ public sealed class StarlightButtonEffects : MonoBehaviour
 
     public void Show(Vector2 screenPoint, Camera eventCamera)
     {
+        StarlightAudio.PlayButton();
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(surface, screenPoint, eventCamera, out Vector2 point))
             StartCoroutine(Ripple(point));
     }
